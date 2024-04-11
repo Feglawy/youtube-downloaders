@@ -32,5 +32,6 @@ To run use
 
 The inputs in the curly brackets are the options
 
-!TODO
--[] add user custom argument -o for the output file location to V2.0
+# !TODO
+
+- [ ] add user custom argument -o for the output file location to V2.0
