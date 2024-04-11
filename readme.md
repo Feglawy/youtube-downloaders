@@ -31,3 +31,6 @@ To run use
 `.\OutputFilename.exe "{add the url to the video}" -t {mp3/ mp4} -r {1080/ 720/ 360}`
 
 The inputs in the curly brackets are the options
+
+!TODO
+-[] add user custom argument -o for the output file location to V2.0
