@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-#include <cstdlib> // For system function
-#include <sstream> // For string manipulation
+#include <bits/stdc++.h>
 
 using namespace std;
 
