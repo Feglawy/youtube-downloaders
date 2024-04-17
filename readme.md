@@ -1,5 +1,7 @@
 # youtube downloaders
 
+it is required to have python and run `pip install -r requirement.txt` for installing the required packages
+
 ## videoDownloader.cpp
 
 it just uses yt-dlp and c++ to work the defult directory which the downloaded video will be downloaded to is "D:\" this is ofcourse on windows
@@ -34,4 +36,4 @@ The inputs in the curly brackets are the options
 
 # !TODO
 
-- [ ] add user custom argument -o for the output file location to V2.0
+- [x] add user custom argument -o for the output file location to V2.0
