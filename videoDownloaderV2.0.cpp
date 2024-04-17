@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 {
     if (argc < 2)
     {
-        cerr << "Usage: " << argv[0] << " <URL> [-t mp3/mp4] [-r 1080/720/360]" << endl;
+        cerr << "Usage: " << argv[0] << " <URL> [-t mp3/mp4] [-r 1080/720/360] [-o Path/to/download/to]" << endl;
         return 1;
     }
 
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     int resolution = 1080;   // Default resolution for mp4
 
     // Parse command line arguments
-    for (int i = 2; i < argc; ++i)
+    for (int i = 2; i < argc; i++)
     {
         if (string(argv[i]) == "-t" && i + 1 < argc)
         {
@@ -30,6 +30,11 @@ int main(int argc, char *argv[])
         {
             resolution = stoi(argv[i + 1]);
             i++; // Skip the next argument since it's the resolution
+        }
+        else if (string(argv[i]) == "-o" && i + 1 < argc)
+        {
+            outputPath = argv[i + 1];
+            i++;
         }
     }
 
@@ -42,7 +47,11 @@ int main(int argc, char *argv[])
         // Append resolution if fileType is mp4
         commandStream << " -f \"bestvideo[height<=" << resolution << "]+bestaudio/best[height<=" << resolution << "]\"";
     }
-
+    else if (fileType == "mp3")
+    {
+        // Append desired audio quality or bitrate if fileType is mp3
+        commandStream << " -f bestaudio/best";
+    }
     commandStream << " -o \"" << outputPath << "\\%(title)s.%(ext)s\"";
 
     string command = commandStream.str();
