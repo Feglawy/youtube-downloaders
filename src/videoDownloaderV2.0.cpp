@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     string URL = argv[1];
     URL = URL.substr(0, URL.find('&'));
 
-    string outputPath = "D:\\"; // Default output path
+    string outputPath = ""; // Default output path
 
     string fileType = "mp4"; // Default file type
     int resolution = 1080;   // Default resolution for mp4
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
         // Append desired audio quality or bitrate if fileType is mp3
         commandStream << " -f bestaudio/best";
     }
-    commandStream << " -o \"" << outputPath << "\\%(title)s.%(ext)s\"";
+    commandStream << " -o \"" << outputPath << "\\%(title)s.%(ext)s\" --merge-output-format mp4";
 
     string command = commandStream.str();
 
