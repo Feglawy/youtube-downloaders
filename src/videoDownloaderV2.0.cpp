@@ -46,13 +46,14 @@ int main(int argc, char *argv[])
     {
         // Append resolution if fileType is mp4
         commandStream << " -f \"bestvideo[height<=" << resolution << "]+bestaudio/best[height<=" << resolution << "]\"";
+        commandStream << " --merge-output-format mp4";
     }
     else if (fileType == "mp3")
     {
         // Append desired audio quality or bitrate if fileType is mp3
-        commandStream << " -f bestaudio/best";
+        commandStream << " -f bestaudio --extract-audio --audio-format mp3";
     }
-    commandStream << " -o \"" << outputPath << "\\%(title)s.%(ext)s\" --merge-output-format mp4";
+    commandStream << " -o \"" << outputPath << "\\%(title)s.%(ext)s\"";
 
     string command = commandStream.str();
 
